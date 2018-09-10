@@ -22,3 +22,9 @@ def response_class():
         'Program': 'Flask Web Application'
     })
     return make_response(custom_response)
+
+
+@app.route('/response/string')
+def response_string():
+    # return make_response('String response')
+    return 'String response'
