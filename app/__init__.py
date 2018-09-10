@@ -28,3 +28,9 @@ def response_class():
 def response_string():
     # return make_response('String response')
     return 'String response'
+
+
+@app.route('/response/unicode')
+def response_unicode():
+    # return make_response(unicode('String response'))
+    return u'String response'
