@@ -58,6 +58,7 @@ def response_tuple():
     }))
 
 
+'''
 @app.before_first_request
 def before_first_request():
     print('앱 가동 후 첫번째 요청 전에 호출')
@@ -82,4 +83,4 @@ def teardown_request(exception):
 @app.teardown_appcontext
 def teardown_appcontext(exception):
     print('HTTP 요청의 애플리케이션 컨텍스트가 종료될 때 호출')
-
+'''
