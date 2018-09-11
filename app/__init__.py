@@ -49,3 +49,10 @@ def response_wsgi():
         return [response_body]
 
     return make_response(application)
+
+
+@app.route('/response/tuple')
+def response_tuple():
+    return make_response(('Tuple Custom Response', 'OK', {
+        'response_method': 'Tuple Response'
+    }))
