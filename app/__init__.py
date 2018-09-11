@@ -14,6 +14,7 @@ class SquareView(BaseConverter):
 
 
 app = Flask(__name__)
+app.debug = True
 app.url_map.converters['square'] = SquareView
 
 
