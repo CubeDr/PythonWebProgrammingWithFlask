@@ -56,3 +56,30 @@ def response_tuple():
     return make_response(('Tuple Custom Response', 'OK', {
         'response_method': 'Tuple Response'
     }))
+
+
+@app.before_first_request
+def before_first_request():
+    print('앱 가동 후 첫번째 요청 전에 호출')
+
+
+@app.before_request
+def before_request():
+    print('매 요청 전 호출')
+
+
+@app.after_request
+def after_request(response):
+    print('매 요청 처리 후 호출')
+    return response
+
+
+@app.teardown_request
+def teardown_request(exception):
+    print('요청 결과를 브라우저에 응답한 후 호출')
+
+
+@app.teardown_appcontext
+def teardown_appcontext(exception):
+    print('HTTP 요청의 애플리케이션 컨텍스트가 종료될 때 호출')
+
