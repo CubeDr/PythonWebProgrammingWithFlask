@@ -19,3 +19,18 @@ def multi_method():
         return 'multi GET'
     else:
         pass
+
+
+@app.route('/argument/int/<int:num>')
+def argument_int(num):
+    return str(num*num)
+
+
+@app.route('/argument/float/<float:num>')
+def argument_float(num):
+    return str(round(num))
+
+
+@app.route('/argument/path/<path:p>')
+def argument_path(p):
+    return p
