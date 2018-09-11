@@ -1,7 +1,20 @@
 from flask import Flask, g
 from flask import Response, make_response
+from flask import url_for
+from werkzeug.routing import BaseConverter
+
+
+class SquareView(BaseConverter):
+    def to_python(self, value):
+        value = int(value)
+        return value * value
+
+    def to_url(self, value):
+        return str(value)
+
 
 app = Flask(__name__)
+app.url_map.converters['square'] = SquareView
 
 
 @app.route('/')
@@ -56,6 +69,11 @@ def response_tuple():
     return make_response(('Tuple Custom Response', 'OK', {
         'response_method': 'Tuple Response'
     }))
+
+
+@app.route('/square/<square:num>', endpoint='square_view')
+def square_view_route(num):
+    return str(num) + ' => ' + url_for('square_view', num=num)
 
 
 '''
